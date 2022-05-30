@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Project 2-2: An Interactive HTML Color Sampler</title>
+    <!--Stylesheet-->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Color Sampler-->
+    <h2>Project 2-2: An Interactive HTML Color Sampler</h2>
+    <!-- show form to user slide value -->
+    <form method="get" action="display.php">
+        R<input type="range" min="0" max="255" value="0" name="red" id="red" oninput="colors()"><br/>
+        G<input type="range" min="0" max="255" value="0" name="green" id="green" oninput="colors()"><br/>
+        B<input type="range" min="0" max="255" value="0" name="blue" id="blue" oninput="colors()"><br/>
+        <div class="color-change" id="output">rgb(0, 0, 0)</div>
+        <input class="color-change" id="submit" type="submit" value="Show me" />
+    </form>
+
+    <!-- Javascript -->
+    <script>
+
+        // display values to folow format rgb(x,x,x) to UI and change to color background
+        function colors(){
+            //get value from input id red
+            var red= document.getElementById("red").value;
+            //get value from input id green
+            var green = document.getElementById("green").value;
+            //get value from input id blue
+            var blue = document.getElementById("blue").value;;
+            //display text color to element with id output
+            document.getElementById("output").innerHTML =  'rgb(' + red + ',' + green + ',' + blue + ')' ;
+
+            //set background color to element with id output
+            document.getElementById("output").style.backgroundColor = `rgb(${red},${green},${blue})`;
+
+            //set background color to element with id submit
+            document.getElementById("submit").style.backgroundColor = `rgb(${red},${green},${blue})`;
+        }
+    </script>
+</body>
+</html>
