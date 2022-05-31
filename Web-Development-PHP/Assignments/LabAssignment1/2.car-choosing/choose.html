@@ -1,20 +1,39 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-  <head>
-    <title>Car Choosing</title>
-  </head>
-  <body>
-    <h2>Select Your Car</h2>
-    <form method="post" action="car.php">
-      Type: <br />
-      <select name="selType">
+
+<head>
+  <title>Car Choosing</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+  </script>
+</head>
+
+<body class="container p-5">
+  <h2 class="text-secondary">Select Your Car</h2>
+  <form class="container px-0 mb-5" method="post" action="car.php">
+
+    <div class="input-group-lg mb-3 w-50">
+      <label for="exampleInputEmail1" class="form-label text-secondary">Type:</label>
+      <select class="form-select form-select-lg mb-3 text-secondary" aria-label=".form-select-lg example"
+        name="selType">
         <option value="Porsche 911">Porsche 911</option>
         <option value="Volkswagen Beetle">Volkswagen Beetle</option>
         <option value="Ford Taurus">Ford Taurus</option>
       </select>
-      Color: <br />
-      <input type="text" name="txtColor" />
-      <input type="submit" />
-    </form>
-  </body>
+    </div>
+
+    <div class="input-group-lg mb-3 w-50">
+      <label for="exampleInputEmail1" class="form-label text-secondary">Color:</label>
+      <input class="form-control text-secondary" placeholder="Please text the car color" type="text" name="txtColor"
+        id="txtColor">
+    </div>
+
+    <button type="submit" class="btn btn-primary w-50">Submit</button>
+  </form>
+</body>
+
 </html>
