@@ -1,0 +1,67 @@
+{
+    "cars": [
+        {
+            "name": "Porsche 911",
+            "stocks": [
+                {
+                    "color": "yellow",
+                    "quantity": 1
+                },
+                {
+                    "color": "black",
+                    "quantity": 0
+                },
+                {
+                    "color": "white",
+                    "quantity": 2
+                },
+                {
+                    "color": "grey",
+                    "quantity": 1
+                }
+            ]
+        },
+        {
+            "name": "Volkswagen Beetle",
+            "stocks": [
+                {
+                    "color": "yellow",
+                    "quantity": 2
+                },
+                {
+                    "color": "black",
+                    "quantity": 1
+                },
+                {
+                    "color": "white",
+                    "quantity": 2
+                },
+                {
+                    "color": "grey",
+                    "quantity": 0
+                }
+            ]
+        },
+        {
+            "name": "Ford Taurus",
+            "stocks": [
+                {
+                    "color": "yellow",
+                    "quantity": 0
+                },
+                {
+                    "color": "black",
+                    "quantity": 0
+                },
+                {
+                    "color": "white",
+                    "quantity": 2
+                },
+                {
+                    "color": "grey",
+                    "quantity": 3
+                }
+            ]
+        }
+    ]
+}
