@@ -1,42 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title>Project 2-2: An Interactive HTML Color Sampler</title>
-    <!--Stylesheet-->
-    <link rel="stylesheet" href="style.css">
+  <title>Project 2-2: An Interactive HTML Color Sampler</title>
+  <!--Stylesheet-->
+  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+  </script>
 </head>
-<body>
-    <!-- Color Sampler-->
-    <h2>Project 2-2: An Interactive HTML Color Sampler</h2>
-    <!-- show form to user slide value -->
-    <form method="get" action="display.php">
-        R<input type="range" min="0" max="255" value="0" name="red" id="red" oninput="colors()"><br/>
-        G<input type="range" min="0" max="255" value="0" name="green" id="green" oninput="colors()"><br/>
-        B<input type="range" min="0" max="255" value="0" name="blue" id="blue" oninput="colors()"><br/>
-        <div class="color-change" id="output">rgb(0, 0, 0)</div>
-        <input class="color-change" id="submit" type="submit" value="Show me" />
-    </form>
 
-    <!-- Javascript -->
-    <script>
+<body class="container p-5">
+  <!-- Color Sampler-->
+  <h2 class="text-secondary">Project 2-2: An Interactive HTML Color Sampler</h2>
+  <!-- Show form to user slide value -->
+  <form method="get" action="display.php">
+    <div class="form-group">
+      <label class="text-secondary" for="exampleInputPassword1">R</label>
+      <input type="range" min="0" max="255" value="0" name="red" id="red" oninput="colors()">
+    </div>
+    <div class="form-group">
+      <label class="text-secondary" for="exampleInputPassword1">G</label>
+      <input type="range" min="0" max="255" value="0" name="green" id="green" oninput="colors()">
+    </div>
+    <div class="form-group">
+      <label class="text-secondary" for="exampleInputPassword1">B</label>
+      <input type="range" min="0" max="255" value="0" name="blue" id="blue" oninput="colors()">
+    </div>
+    <div class="color-change" id="output">rgb(0, 0, 0)</div>
+    <input class="color-change" id="submit" type="submit" value="Show me" />
+  </form>
 
-        // display values to folow format rgb(x,x,x) to UI and change to color background
-        function colors(){
-            //get value from input id red
-            var red= document.getElementById("red").value;
-            //get value from input id green
-            var green = document.getElementById("green").value;
-            //get value from input id blue
-            var blue = document.getElementById("blue").value;;
-            //display text color to element with id output
-            document.getElementById("output").innerHTML =  'rgb(' + red + ',' + green + ',' + blue + ')' ;
+  <!-- Javascript -->
+  <script>
+    // Display values to folow format rgb(x,x,x) to UI and change to color background
+    function colors() {
+      // Get value from input id red
+      var red = document.getElementById("red").value;
+      // Get value from input id green
+      var green = document.getElementById("green").value;
+      // Get value from input id blue
+      var blue = document.getElementById("blue").value;;
+      // Display text color to element with id output
+      document.getElementById("output").innerHTML = 'rgb(' + red + ',' + green + ',' + blue + ')';
 
-            //set background color to element with id output
-            document.getElementById("output").style.backgroundColor = `rgb(${red},${green},${blue})`;
+      // Set background color to element with id output
+      document.getElementById("output").style.backgroundColor = `rgb(${red},${green},${blue})`;
 
-            //set background color to element with id submit
-            document.getElementById("submit").style.backgroundColor = `rgb(${red},${green},${blue})`;
-        }
-    </script>
+      // Set background color to element with id submit
+      document.getElementById("submit").style.backgroundColor = `rgb(${red},${green},${blue})`;
+    }
+  </script>
 </body>
+
 </html>
