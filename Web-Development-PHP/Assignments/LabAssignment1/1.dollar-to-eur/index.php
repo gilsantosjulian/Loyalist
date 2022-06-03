@@ -3,7 +3,7 @@
 
 <head>
   <title>
-    Project 2.1: USD/EUR Currency Conversion
+    Project 2.1: USD Currency Conversion
   </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,20 +12,20 @@
 </head>
 
 <body class="container p-5">
-  <h2 class="text-secondary">Project 2-1: USD/EUR Currency Conversion</h2>
+  <h2 class="text-secondary">Project 2-1: USD Currency Conversion</h2>
   <!-- Display the input to allow user to type USD value that want to exchange to EUR -->
   <form class="container px-0 mb-5" name="form" action="" method="get">
     <div class="input-group-lg mb-3 w-50">
       <label for="exampleInputEmail1" class="form-label text-secondary">USD Amount</label>
       <input class="form-control" placeholder="Please Input the USD Amount" type="number" name="usd" id="usd">
-      <label for="destCurrency">Choose a currency to convert to:</label>
-          <select name="currency" id="currency">
+      <label class="form-label text-secondary" for="destCurrency">Choose a currency to convert to:</label>
+          <select class="form-select" name="currency" id="currency">
             <option value="EUR">EUR</option>
             <option value="GBP">GBP</option>
             <option value="AUD">AUD</option>
             <option value="CAD">CAD</option>
           </select>
-    </div>
+</div>
 
     <button type="submit" class="btn btn-primary">Convert now!</button>
   </form>
