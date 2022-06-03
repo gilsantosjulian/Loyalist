@@ -18,17 +18,31 @@
     <div class="input-group-lg mb-3 w-50">
       <label for="exampleInputEmail1" class="form-label text-secondary">USD Amount</label>
       <input class="form-control" placeholder="Please Input the USD Amount" type="number" name="usd" id="usd">
+      <label for="destCurrency">Choose a currency to convert to:</label>
+          <select name="currency" id="currency">
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+            <option value="AUD">AUD</option>
+            <option value="CAD">CAD</option>
+          </select>
     </div>
 
-    <button type="submit" class="btn btn-primary">Convert from USD to EUR</button>
+    <button type="submit" class="btn btn-primary">Convert now!</button>
   </form>
 
   <?php
   // Define Default rate in case calling API is failed from any reason.
   define("DEFAULT_RATE", 0.93);
 
+  // GET destination currency from user
+  $destinationCurrency = $_GET["currency"];
+
+  // Build API URL
+  $apiURL = "https://api.currencyfreaks.com/latest?apikey=f35fcd5c00d84cb588bd4fef82634af8&symbols=" . $destinationCurrency;
+
   // Define API URL to get exchange rate.
-  define("API_URL", "https://api.currencyfreaks.com/latest?apikey=f35fcd5c00d84cb588bd4fef82634af8&symbols=EUR");
+  //define("API_URL", "https://api.currencyfreaks.com/latest?apikey=f35fcd5c00d84cb588bd4fef82634af8&symbols=EUR");
+  define("API_URL", $apiURL);
 
   // Initializes a new cURL session to handle calling api.
   $curl = curl_init(API_URL);
@@ -64,12 +78,12 @@
   }
 
   //set rate that get from API based on USD to EUR
-  $rate = number_format((float) $data["rates"]["EUR"], 2, '.', '');
+  $rate = number_format((float) $data["rates"][$destinationCurrency], 2, '.', '');
 
   // Display the rate to UI
   echo "
     <div class='alert alert-light w-50 p-0'>
-      USD to EUR exchange rate is: <b>$rate</b>
+      USD to $destinationCurrency exchange rate is: <b>$rate</b>
     </div>
   ";
 
@@ -78,12 +92,12 @@
 
   // Perform the conversion by calculate USD value multiply with the Rate getting from API
   // Format result to use just two decimals
-  $eurValue = number_format((float) $usdValue * $rate, 2, '.', '');
+  $convertedValue = number_format((float) $usdValue * $rate, 2, '.', '');
 
   // Print the result
   echo "
     <div class='alert alert-success w-50'>
-      <b>$usdValue USD</b> is equivalent to: <b>$eurValue EUR</b>
+      <b>$usdValue USD</b> is equivalent to: <b>$convertedValue $destinationCurrency</b>
     </div>
   ";
   ?>
